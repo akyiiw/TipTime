@@ -1,25 +1,46 @@
-﻿namespace TipTime
+﻿
+
+namespace TipTime
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
 
         public MainPage()
         {
             InitializeComponent();
         }
 
-        private void OnCounterClicked(object sender, EventArgs e)
+        private void PercentageSliderChanged(object sender, EventArgs e)
         {
-            count++;
+            float percent = (float)PercentageSlider.Value;
+            float valorTotal = (float.Parse(Bill.Text));
 
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
-            else
-                CounterBtn.Text = $"Clicked {count} times";
+            float gorjeta = valorTotal * (percent / 100);
+            Tip.Text = gorjeta.ToString();
+            TipPercentage.Text = gorjeta.ToString() + "%";
 
-            SemanticScreenReader.Announce(CounterBtn.Text);
+            float totalFinal = valorTotal + gorjeta;
+            Total.Text = totalFinal.ToString();
+
         }
+
+        private void Percentage15ButtonClicked(object sender, EventArgs e)
+        {
+            PercentageSlider.Value = 15;
+        }
+        private void Percentage20ButtonClicked(object sender, EventArgs e)
+        {
+            PercentageSlider.Value = 20;
+        }
+        private void RoundUpButtonClicked(object sender, EventArgs e)
+        {
+
+        }
+        private void RoundDownButtonClicked(object sender, EventArgs e)
+        {
+
+        }
+
     }
 
 }
