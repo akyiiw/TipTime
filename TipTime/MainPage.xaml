@@ -9,6 +9,10 @@
             Spacing="25">
             <Label
                 Text="Conta" />
+            <Label
+                x:Name="Eerroo"
+                Text=""
+            />
             <Entry
                 x:Name="Bill"
                 Placeholder="Digite o valor total da conta"
@@ -18,21 +22,21 @@
                 Text="Gorjeta"/>
             <Label
                 x:Name="Tip"
-                Text="0.00"
+                Text="R$ 0.00"
             />
 
             <Label
                 Text="Total" />
             <Label
                 x:Name="Total"
-                Text="0.00"
+                Text="R$ 0.00"
             />
 
             <Label
-                Text="Tip Percentage" />
+                Text="Porcentagem da Gorjeta" />
             <Label
                 x:Name="TipPercentage"
-                Text="15%"
+                Text="0%"
             />
 
             <Slider Maximum="100" Minimum="0"

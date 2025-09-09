@@ -8,20 +8,31 @@ namespace TipTime
         public MainPage()
         {
             InitializeComponent();
+            PercentageSlider.Value = 15;
+            double percent = PercentageSlider.Value;
+            TipPercentage.Text = percent.ToString("F") + "%";
         }
 
-        private void PercentageSliderChanged(object sender, EventArgs e)
+
+        private void PercentageSliderChanged(object sender, ValueChangedEventArgs e)
         {
-            float percent = (float)PercentageSlider.Value;
-            float valorTotal = (float.Parse(Bill.Text));
+            try
+            {
+                double percent = PercentageSlider.Value;
+                double valorTotal = (double.Parse(Bill.Text));
 
-            float gorjeta = valorTotal * (percent / 100);
-            Tip.Text = gorjeta.ToString();
-            TipPercentage.Text = gorjeta.ToString() + "%";
+                double gorjeta = valorTotal * (percent / 100);
+                Tip.Text = "R$ " + gorjeta.ToString("F");
+                TipPercentage.Text = percent.ToString("F") + "%";
 
-            float totalFinal = valorTotal + gorjeta;
-            Total.Text = totalFinal.ToString();
-
+                double totalFinal = valorTotal + gorjeta;
+                Total.Text = "R$ " + totalFinal.ToString("F");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                Eerroo.Text = "Por favor, insira um valor válido.";
+            }
         }
 
         private void Percentage15ButtonClicked(object sender, EventArgs e)
