@@ -27,6 +27,7 @@ namespace TipTime
 
                 double totalFinal = valorTotal + gorjeta;
                 Total.Text = "R$ " + totalFinal.ToString("F");
+                Eerroo.Text = "";
             }
             catch (Exception ex)
             {
@@ -45,11 +46,17 @@ namespace TipTime
         }
         private void RoundUpButtonClicked(object sender, EventArgs e)
         {
+            double percent = PercentageSlider.Value;
+            double valorTotal = (double.Parse(Bill.Text));
 
+            double gorjeta = valorTotal * (percent / 100);
+            double totalFinal = valorTotal + gorjeta;
+
+            Total.Text = "R$ " + Math.Ceiling(totalFinal);
         }
         private void RoundDownButtonClicked(object sender, EventArgs e)
         {
-
+            
         }
 
     }
