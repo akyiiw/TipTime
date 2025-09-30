@@ -46,23 +46,41 @@ namespace TipTime
         }
         private void RoundUpButtonClicked(object sender, EventArgs e)
         {
-            double percent = PercentageSlider.Value;
-            double valorTotal = (double.Parse(Bill.Text));
+            try
+            {
+                double percent = PercentageSlider.Value;
+                double valorTotal = (double.Parse(Bill.Text));
 
-            double gorjeta = valorTotal * (percent / 100);
-            double totalFinal = valorTotal + gorjeta;
+                double gorjeta = valorTotal * (percent / 100);
+                double totalFinal = valorTotal + gorjeta;
 
-            Total.Text = "R$ " + Math.Ceiling(totalFinal);
+                Total.Text = "R$ " + Math.Ceiling(totalFinal);
+                WarningRounding.Text = "";
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                WarningRounding.Text = "Por favor, altere a gorjeta antes de tentar arredondá-la";
+            }
         }
         private void RoundDownButtonClicked(object sender, EventArgs e)
         {
-            double percent = PercentageSlider.Value;
-            double valorTotal = (double.Parse(Bill.Text));
+            try
+            {
+                double percent = PercentageSlider.Value;
+                double valorTotal = (double.Parse(Bill.Text));
 
-            double gorjeta = valorTotal * (percent / 100);
-            double totalFinal = valorTotal + gorjeta;
+                double gorjeta = valorTotal * (percent / 100);
+                double totalFinal = valorTotal + gorjeta;
 
-            Total.Text = "R$ " + Math.Floor(totalFinal);
+                Total.Text = "R$ " + Math.Floor(totalFinal);
+                WarningRounding.Text = "";
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                WarningRounding.Text = "Por favor, altere a gorjeta antes de tentar arredondá-la";
+            }
         }
 
     }
