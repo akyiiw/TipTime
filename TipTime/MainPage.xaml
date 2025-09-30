@@ -56,6 +56,10 @@
                 HorizontalOptions="Fill" 
                 Clicked="Percentage20ButtonClicked"                
                 />
+            <Label
+                x:Name="WarningRounding"
+                Text=""
+            />
             <Button
                 x:Name="RoundUpButton"                
                 Text="Arredondar para cima" 
