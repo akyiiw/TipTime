@@ -1,2 +1,2 @@
 ## Pietro Borges - TipTime
-Repositório para o projeto de PAM.
+Repositório para o segundo projeto de PAM.
