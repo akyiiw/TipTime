@@ -10,7 +10,7 @@
             <Label
                 Text="Conta" />
             <Label
-                x:Name="Eerroo"
+                x:Name="Warning"
                 Text=""
             />
             <Entry
